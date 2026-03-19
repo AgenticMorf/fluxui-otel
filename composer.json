@@ -52,5 +52,12 @@
             "pestphp/pest-plugin": true
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/AgenticMorf/fluxui-loki",
+            "only": ["agenticmorf/fluxui-loki"]
+        }
+    ]
 }
