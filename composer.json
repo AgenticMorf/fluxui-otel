@@ -1,5 +1,9 @@
 {
     "name": "agenticmorf/fluxui-otel",
+    "homepage": "https://github.com/AgenticMorf/fluxui-otel",
+    "support": {
+        "source": "https://github.com/AgenticMorf/fluxui-otel"
+    },
     "description": "Flux UI OpenTelemetry observability dashboards for Laravel Livewire",
     "type": "library",
     "version": "1.0.0",
@@ -12,12 +16,21 @@
         "livewire/flux": "^2.0",
         "livewire/livewire": "^3.0|^4.0"
     },
+    "require-dev": {
+        "christhompsontldr/laravel-docit": "^1.0",
+        "orchestra/pest-plugin-testbench": "^4.0",
+        "orchestra/testbench": "^10.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "phpunit/phpunit": "^12.0"
+    },
     "suggest": {
         "livewire/flux-pro": "Recommended for the full dashboard component set"
     },
     "autoload": {
         "psr-4": {
-            "AgenticMorf\\FluxUIOtel\\": "src/"
+            "AgenticMorf\\FluxUIOtel\\": "src/",
+            "AgenticMorf\\FluxUIOtel\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -25,6 +38,18 @@
             "providers": [
                 "AgenticMorf\\FluxUIOtel\\FluxUIOtelServiceProvider"
             ]
+        }
+    },
+    "scripts": {
+        "docit": "php vendor/bin/build-docs",
+        "test": "bash -c 'cd ../.. && ./vendor/bin/sail pest plugins/fluxui-otel/tests --configuration=plugins/fluxui-otel/phpunit.xml'",
+        "test:coverage": "bash -c 'cd ../.. && XDEBUG_MODE=coverage ./vendor/bin/sail pest plugins/fluxui-otel/tests --configuration=plugins/fluxui-otel/phpunit.xml --coverage'",
+        "test:type-coverage": "bash -c 'cd ../.. && ./vendor/bin/sail pest plugins/fluxui-otel/tests --configuration=plugins/fluxui-otel/phpunit.xml --type-coverage'",
+        "test:mutation": "bash -c 'cd ../.. && XDEBUG_MODE=coverage ./vendor/bin/sail pest plugins/fluxui-otel/tests --configuration=plugins/fluxui-otel/phpunit.xml --mutate --everything --covered-only --class=AgenticMorf\\\\FluxUIOtel'"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     },
     "minimum-stability": "stable"
